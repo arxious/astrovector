@@ -17,8 +17,11 @@ I decided to go with Visual Studio as I already have it downloaded and it seems 
 
 This is an image of FlightRadar24's map scroll system. While my ultimate goal is to achieve something like this, it's something I'll work on integrating if I have time at the end of the project, I don't want it to get too technically complex yet.
 
+
+# Starting point
 I first think starting off with a Fixed 2D World Map is a realistic starting point for this demonstration I will use an equirectangular world map
 <img width="1280" height="640" alt="blue_marble" src="https://github.com/user-attachments/assets/4b8617ab-7f6d-404f-b573-bbc74b9a558c"/>
+The dimensions of this map are 1280x640, the same dimensions I plan to make my window size during implementation.
 
 ## Technical Stack
 Tech Stack Used:
