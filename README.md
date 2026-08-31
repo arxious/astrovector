@@ -65,7 +65,7 @@ class Satellite {
 		 double longitude;
 		 double altitude;
 		 double x_velocity;
-		double y_velocity;
+		 double y_velocity;
 		 Satellite(const SatelliteConfig& cfg) {
 			name = cfg.name;
 			visual = sf::CircleShape(3.0f, 100);
