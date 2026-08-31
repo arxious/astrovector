@@ -13,7 +13,8 @@ If I want to host the project on the web (which I probably wont be) then I may u
 ## Day 1: Choosing an IDE & Setting the project scope
 I decided to go with Visual Studio as I already have it downloaded and it seems suitable for developing desktop applications, I intend for the project to be a way to view the current location of satellites on a world map.
 
-<img width="529" height="460" alt="image" src="https://github.com/user-attachments/assets/26f135db-ea3e-4d52-bc50-77b96d9a49dd" />
+<img width="529" height="460" alt="image" src="https://github.com/user-attachments/assets/26f135db-ea3e-4d52-bc50-77b96d9a49dd"/>
+
 This is an image of FlightRadar24's map scroll system. While my ultimate goal is to achieve something like this, it won't be something I'll be working on off the bat.
 
 I first think starting off with a Fixed 2D World Map is a realistic starting point for this demonstration I will use an equirectangular world map
