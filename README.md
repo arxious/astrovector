@@ -38,7 +38,7 @@ Now, since the circle was going outside the bounds of the screen while it was mo
 
 https://github.com/user-attachments/assets/498103df-62f7-40c2-b11d-597a94472408
 
-Prior to this, the circle moving horizontally and vertically seemed to re-emerge outside the opposite end appropriately, giving the circle both horizontal and vertical velocity introduced some interesting behaviour, it seemed to re-emerge from other ends rather than what I expected.
+Prior to this, the circle moving horizontally and vertically seemed to re-emerge outside the opposite end appropriately. When I gave the circle both horizontal and vertical velocity, it introduced some interesting behaviour. The circle seemed to re-emerge from different ends.
 
 
 
