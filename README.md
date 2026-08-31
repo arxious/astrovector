@@ -96,7 +96,7 @@ Satellite testSatellite(testConfig);
 testSatellite.visual.setPosition(sf::Vector2f(1280, 640));
 window.draw(testSatellite.visual);
 ```
-Next, I needed it to move across the screen. Initially, I tried to use a while loop to smoothly move the white circle to the edge of the screen. `(x = 1280)` However I realised that it was inside the event loop, causing it to move instantly. Taking it out of the event loop fixed the issue.
+Next, I needed it to move across the screen. Initially, I tried to use a while loop to smoothly move the white circle to the edge of the screen. `(x = 1280)` However I realised that it was inside the window loop, causing it to move instantly. Taking it out of the window loop fixed the issue.
 
 Now, since the circle was going outside the bounds of the screen while it was moving, It was necessary to include a way for it to wrap around the map. I found this easy as just setting positional updates to be `X MOD 1280` and `Y MOD 640`. However, there were still some issues when `MOD` was used with a negative value, to account for this, I made the program first check if the latitude/longitude was less than `0`, and if it was, it would be positioned to the opposite side of the window "re-emerging".
 
