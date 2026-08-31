@@ -58,8 +58,6 @@ In my updated version, I changed the approach, in order to display and render sa
 
 ```cpp
 class Satellite {
-		
-
 	public:
 		 sf::CircleShape visual;
 		 std::string name;
