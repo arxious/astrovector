@@ -15,7 +15,7 @@ I decided to go with Visual Studio as I already have it downloaded and it seems 
 
 <img width="529" height="460" alt="image" src="https://github.com/user-attachments/assets/26f135db-ea3e-4d52-bc50-77b96d9a49dd"/>
 
-This is an image of FlightRadar24's map scroll system. While my ultimate goal is to achieve something like this, it won't be something I'll be working on off the bat.
+This is an image of FlightRadar24's map scroll system. While my ultimate goal is to achieve something like this, it's something I'll work on integrating if I have time at the end of the project, I don't want it to get too technically complex yet.
 
 I first think starting off with a Fixed 2D World Map is a realistic starting point for this demonstration I will use an equirectangular world map
 <img width="1280" height="640" alt="blue_marble" src="https://github.com/user-attachments/assets/4b8617ab-7f6d-404f-b573-bbc74b9a558c"/>
