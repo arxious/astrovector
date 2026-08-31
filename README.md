@@ -23,12 +23,17 @@ I found it reasonable to start off with a rectangular world map, while not a ful
 <img width="1280" height="640" alt="blue_marble" src="https://github.com/user-attachments/assets/4b8617ab-7f6d-404f-b573-bbc74b9a558c"/>
 
 
-## Technical Stack
-Tech Stack Used:
-C++20
-SFML 3.1
-CMake 3.23
+## Libraries and Dependencies
+C++ by default does not have a way to load and render a window. To get around this, I found a useful library called SFML, which uses a loop to update an open window each frame. So I decided to render a window of dimensions 1280x640, the same size as the world map.
 
-In order to build a desktop application, I first need a way to render and open a window. To do this, I decided to use a library called SFML, which uses a loop to keep the window open and update it.
-I also thought if other people were going to download and run my software, there should be an easier process to build and run it. That's when I found CMake, which is a useful tool to help with the build process.
+Next, I noticed SFML can also be used to display the world map to the screen using `sf::Texture`, which I used to load the image. However to display it to the window, I created a map sprite using `sf::Sprite`, and I could then simply draw the sprite using `window.draw(worldSprite)`, which displayed it to the screen, by default, at 0,0, which perfectly aligned the map with the window. The issue was the window was resizable, which I disabled by writing `sf::Style::Titlebar | sf::Style::Close` as as the third parameter for `sf::RenderWindow`, I had to read a lot of the documentation to figure this out.
+
+Now I had a world map loaded, great. Next I needed to represent the satellites that would be displayed on the map. To do this, I found out that SFML had objects for graphics, so i used their `sf::CircleShape`, to create a white circle that had radius `3` pixels, and displayed them on the world map. When I got it to work I was screaming in joy and excitement at a silly white circle for a minute straight.
+
+Next, I needed it to move across the screen. Being silly, (..FINISH LATER)
+
+
+
+
+
 
