@@ -4,7 +4,7 @@ project(astrovector VERSION 1.0.0)
 
 include(FetchContent) # This was added to use CMake's FetchContent module
 
-add_executable(astrovector main.cpp)
+add_executable(astrovector main.cpp  )
 
 FetchContent_Declare( # This was added to fetch SFML from GitHub
     SFML
