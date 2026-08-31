@@ -75,8 +75,8 @@ class Satellite {
 		}
 };
 ```
-This class represents a satellite. My initial plan was that the constructor function will take in the `SatelliteConfig` and set the object's internal variables to the ones in the configuration
-At runtime, the satellite's white circle is drawn at (latitude, longitude), each measured in pixels. Notice how my constructor function also automatically creates the `sf::CircleShape` object so I do not need to, this procedure is ran when a new satellite is created, which prevents me from having to create it in `main.cpp`
+This class represents a satellite. My initial plan was that the constructor function will take in the `SatelliteConfig` and set the object's internal variables to the ones in the configuration.
+At runtime, the satellite's white circle is drawn at (latitude, longitude), each measured in pixels. My constructor function also automatically creates the circle object, this prevents me from having to create it manually.
 
 Test Satellite Configuration (in `main.cpp`)
 
@@ -105,4 +105,14 @@ Now, since the circle was going outside the bounds of the screen while it was mo
 
 https://github.com/user-attachments/assets/498103df-62f7-40c2-b11d-597a94472408
 
-Prior to this, the circle moving horizontally and vertically seemed to re-emerge outside the opposite end appropriately. When I gave the circle both horizontal and vertical velocity, it introduced some interesting behaviour. The circle seemed to re-emerge from different ends.
+# Researching how to get the Satellite Data
+Researching online has taught me that my current implementation isn't feasible, it turns out, my understanding of latitude and longitude were wrong, it is not a replacement for any x/y coordinates but an entirely different coordinate system using degrees and is specifically for the earth.
+
+Unlike FlightRadar24 where planes broadcast their exact location through GPS in real time, Satellites do not have such a thing. Instead, I found out that they have TLE "Two Line Element" Data that includes the name of the satellite, and any orbital data such as it's inclination (tilt), mean motion (orbits per day) etc. They use all of this information in an algorithm called SGP4, which takes in a specific time $t$ and returns a 3D Position Vector in km representing the satellite's position in 3D space and Velocity Vector representing the speed and direction of the satellite. The format for this is $(x,y,z)$. 
+
+Experimenting with this:
+
+
+
+
+
