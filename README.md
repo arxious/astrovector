@@ -98,14 +98,16 @@ window.draw(testSatellite.visual);
 ```
 Next, I needed it to move across the screen. Initially, I tried to use a while loop to smoothly move the white circle to the edge of the screen. `(x = 1280)` However I realised that it was inside the event loop, causing it to move instantly. Taking it out of the event loop fixed the issue.
 
-Now, since the circle was going outside the bounds of the screen while it was moving, It was necessary to include a way for it to wrap around the map. I found this easy as just setting positional updates to be `latitude MOD 1280` and `longitude MOD 640`. However, there were still some issues when `MOD` was used with a negative value, to account for this, I made the program first check if the latitude/longitude was less than `0`, and if it was, it would be positioned to the opposite side of the window "re-emerging".
+Now, since the circle was going outside the bounds of the screen while it was moving, It was necessary to include a way for it to wrap around the map. I found this easy as just setting positional updates to be `X MOD 1280` and `Y MOD 640`. However, there were still some issues when `MOD` was used with a negative value, to account for this, I made the program first check if the latitude/longitude was less than `0`, and if it was, it would be positioned to the opposite side of the window "re-emerging".
 
 https://github.com/user-attachments/assets/f0c959ca-dbde-4471-bc4f-7684aa4d667a
 
 # Researching how to get the Satellite Data
 Researching online has taught me that my current implementation isn't feasible, it turns out, my understanding of latitude and longitude were wrong, it is not a replacement for any x/y coordinates but an entirely different coordinate system using degrees and is specifically for the earth.
 
-Unlike FlightRadar24 where planes broadcast their exact location through GPS in real time, Satellites do not have such a thing. Instead, I found out that they have TLE "Two Line Element" Data that includes the name of the satellite, and any orbital data such as it's inclination (tilt), mean motion (orbits per day) etc. They use all of this information in an algorithm called SGP4, which takes in a specific time $t$ and returns a 3D Position Vector in km representing the satellite's position in 3D space and Velocity Vector representing the speed and direction of the satellite. The format for this is $(x,y,z)$. 
+Unlike FlightRadar24 where planes broadcast their exact location through GPS in real time, Satellites do not have such a thing. Instead, I found out that they have TLE "Two Line Element" Data that includes the name of the satellite, and any orbital data such as it's inclination (tilt), mean motion (orbits per day) etc. 
+
+They use all of this information in an algorithm called SGP4, which takes in a specific time $t$ and returns a 3D Position Vector $(x,y,z) in km representing the satellite's position in 3D space and Velocity Vector measured in km/s representing the speed and direction of the satellite.
 
 Experimenting with this:
 
