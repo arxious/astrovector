@@ -103,11 +103,11 @@ Now, since the circle was going outside the bounds of the screen while it was mo
 https://github.com/user-attachments/assets/f0c959ca-dbde-4471-bc4f-7684aa4d667a
 
 # Researching how to get the Satellite Data
-Researching online has taught me that my current implementation isn't feasible, it turns out, my understanding of latitude and longitude were wrong, it is not a replacement for any x/y coordinates but an entirely different coordinate system using degrees and is specifically for the earth.
+Researching online has taught me that my current implementation isn't feasible, it turns out, my understanding of latitude and longitude were wrong, it is not a replacement for any x/y coordinates but an entirely different coordinate system using degrees..
 
 Unlike FlightRadar24 where planes broadcast their exact location through GPS in real time, Satellites do not have such a thing. Instead, I found out that they have TLE "Two Line Element" Data that includes the name of the satellite, and any orbital data such as it's inclination (tilt), mean motion (orbits per day) etc. 
 
-They use all of this information in an algorithm called SGP4, which takes in a specific time $t$ and returns a 3D Position Vector $(x,y,z) in km representing the satellite's position in 3D space and Velocity Vector measured in km/s representing the speed and direction of the satellite.
+They use all of this information in an algorithm called SGP4, which takes in a specific time $t$ and returns a 3D Position Vector $(x,y,z)$ in km representing the satellite's position in 3D space and Velocity Vector measured in km/s representing the speed and direction of the satellite.
 
 Experimenting with this:
 
