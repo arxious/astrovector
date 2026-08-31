@@ -32,32 +32,6 @@ Now I had a world map loaded, great. Next I needed to represent the satellites t
 <img width="1277" height="667" alt="image" src="https://github.com/user-attachments/assets/1ab20856-9c35-44c7-b15e-6dea906fe382" />
 
 
-Next, I needed it to move across the screen. Initially, I tried to use a while loop to smoothly move the white circle to the edge of the screen. `(x = 1280)` However I realised that it was inside the event loop, causing it to move instantly. Taking it out of the event loop fixed the issue.
-
-Now, since the circle was going outside the bounds of the screen while it was moving, It was necessary to include a way for it to wrap around the map. I found this easy as just setting positional updates to be `latitude MOD 1280` and `longitude MOD 640`. However, there were still some issues when `MOD` was used with a negative value, to account for this, I made the program first check if the latitude/longitude was less than `0`, and if it was, it would be positioned to the opposite side of the window "re-emerging".
-
-https://github.com/user-attachments/assets/498103df-62f7-40c2-b11d-597a94472408
-
-Prior to this, the circle moving horizontally and vertically seemed to re-emerge outside the opposite end appropriately. When I gave the circle both horizontal and vertical velocity, it introduced some interesting behaviour. The circle seemed to re-emerge from different ends.
-
-I now had a moving circle to represent the satellite on the world map. So in order to actually represent a satellite with real data, I needed to create a data structure
-
-```cpp
-struct SatelliteConfig {
-	std::string name;
-	double latitude;
-	double longitude;
-	double altitude;
-	double x_velocity;
-	double y_velocity;
-};
-```
-This struct contains all the relevant data for any satellite it contains it's `latitude`, `longitude`, `altitude`, `x,y velocity`, etc. Any general satellite will have this data attached to them.
-
-
-
-
-
 
 
 
