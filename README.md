@@ -1,7 +1,5 @@
 # Documenting my first project
 
--- So I wanted to document the process however I was too deep into learning and building this that I forgot, so here's my official writeup!
-
 ### Inspiration and Motivations
 Since I wanted to actually build something in C++, I thought, why not a satellite tracker? that's pretty cool, and it connects to my interest in space and astronomy.
 Back when I used to go plane watching near Heathrow airport, I used to use an app called FlightRadar24. The purpose was to display the location of planes through their user interface, which I thought it would be worthwhile to take inspiration and build something similar.
@@ -78,8 +76,26 @@ class Satellite {
 };
 ```
 This class represents a satellite. My initial plan was that the constructor function will take in the `SatelliteConfig` and set the object's internal variables to the ones in the configuration
+At runtime, the satellite's white circle is drawn at (latitude, longitude), each measured in pixels. Notice how my constructor function also automatically creates the `sf::CircleShape` object so I do not need to, this procedure is ran when a new satellite is created, which prevents me from having to create it in `main.cpp`
 
-At runtime, the satellite's white circle is drawn at (latitude, longitude), each measured in pixels.
+Test Satellite Configuration (in `main.cpp`)
+
+```cpp
+SatelliteConfig testConfig;
+testConfig.name = "testSatellite";
+testConfig.latitude = 1280 / 2;
+testConfig.longitude = 640 / 2;
+testConfig.x_velocity = 100;
+testConfig.y_velocity = 100;
+
+Satellite testSatellite(testConfig);
+```
+
+```cpp
+// In window loop
+testSatellite.visual.setPosition(sf::Vector2f(1280, 640));
+window.draw(testSatellite.visual);
+```
 
 <img width="1277" height="667" alt="image" src="https://github.com/user-attachments/assets/1ab20856-9c35-44c7-b15e-6dea906fe382" />
 
