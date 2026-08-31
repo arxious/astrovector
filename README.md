@@ -29,6 +29,60 @@ Next, I noticed SFML can also be used to display the world map to the screen usi
 
 Now I had a world map loaded, great. Next I needed to represent the satellites that would be displayed on the map. To do this, I found out that SFML had objects for graphics, so i used their `sf::CircleShape`, to create a white circle that had radius `3` pixels, and displayed them on the world map.
 
+At this current time, I came up with this struct as a representation of the satellite visual (the white circle)
+
+```cpp
+struct SatelliteVisual {
+	std::string name;
+	sf::CircleShape *visual; // This will store the memory address of the circle object
+	double latitude;
+	double longitude;
+	double altitude;
+	double velocity;
+};
+```
+
+There are some issues with this structure, namely,  `*visual` means that I am using a pointer to a SFML CircleShape object. This assumes that I will create one in my `main.cpp` program. If I extend my representation to potentially hundreds of satellites this is unreliable as I will have to manage the construction of many CircleShape objects manually.
+
+```cpp
+struct SatelliteConfig {
+	std::string name;
+	double latitude;
+	double longitude;
+	double altitude;
+	double x_velocity;
+	double y_velocity;
+};
+```
+In my updated version, I changed the approach, in order to display and render satellites they need will need their "configuration" populated.
+
+```
+class Satellite {
+		
+
+	public:
+		 sf::CircleShape visual;
+		 std::string name;
+		 double latitude;
+		 double longitude;
+		 double altitude;
+		 double x_velocity;
+		double y_velocity;
+		 Satellite(const SatelliteConfig& cfg) {
+			name = cfg.name;
+			visual = sf::CircleShape(3.0f, 100);
+			latitude = cfg.latitude;
+			longitude = cfg.longitude;
+			altitude = cfg.altitude;
+			x_velocity = cfg.x_velocity;
+			y_velocity = cfg.y_velocity;
+		}
+};
+```
+This class represents a satellite. My initial plan was that the constructor function will take in the `SatelliteConfig` and set the object's internal variables to the ones in the configuration
+
+At runtime, the satellite's white circle is drawn at (latitude, longitude), each measured in pixels.
+
 <img width="1277" height="667" alt="image" src="https://github.com/user-attachments/assets/1ab20856-9c35-44c7-b15e-6dea906fe382" />
 
 Next, I needed it to move across the screen. Initially, I tried to use a while loop to smoothly move the white circle to the edge of the screen. `(x = 1280)` However I realised that it was inside the event loop, causing it to move instantly. Taking it out of the event loop fixed the issue.
@@ -38,7 +92,3 @@ Now, since the circle was going outside the bounds of the screen while it was mo
 https://github.com/user-attachments/assets/498103df-62f7-40c2-b11d-597a94472408
 
 Prior to this, the circle moving horizontally and vertically seemed to re-emerge outside the opposite end appropriately. When I gave the circle both horizontal and vertical velocity, it introduced some interesting behaviour. The circle seemed to re-emerge from different ends.
-
-
-
-
