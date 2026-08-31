@@ -36,6 +36,9 @@ Next, I needed it to move across the screen. Initially, I tried to use a while l
 
 Now, since the circle was going outside the bounds of the screen while it was moving, It was necessary to include a way for it to wrap around the map. I found this easy as just setting positional updates to be `latitude MOD 1280` and `longitude MOD 640`. However, there were still some issues when `MOD` was used with a negative value, to account for this, I made the program first check if the latitude/longitude was less than `0`, and if it was, it would be positioned to the opposite side of the window "re-emerging".
 
+https://github.com/user-attachments/assets/498103df-62f7-40c2-b11d-597a94472408
+
+Prior to this, the circle moving horizontally and vertically seemed to re-emerge outside the opposite end appropriately, giving the circle both horizontal and vertical velocity introduced some interesting behaviour, it seemed to re-emerge from other ends rather than what I expected.
 
 
 
