@@ -56,7 +56,7 @@ struct SatelliteConfig {
 ```
 In my updated version, I changed the approach, in order to display and render satellites they need will need their "configuration" populated.
 
-```
+```cpp
 class Satellite {
 		
 
