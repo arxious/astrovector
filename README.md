@@ -40,6 +40,22 @@ https://github.com/user-attachments/assets/498103df-62f7-40c2-b11d-597a94472408
 
 Prior to this, the circle moving horizontally and vertically seemed to re-emerge outside the opposite end appropriately. When I gave the circle both horizontal and vertical velocity, it introduced some interesting behaviour. The circle seemed to re-emerge from different ends.
 
+I now had a moving circle to represent the satellite on the world map. So in order to actually represent a satellite with real data, I needed to create a data structure
+
+```cpp
+struct SatelliteConfig {
+	std::string name;
+	double latitude;
+	double longitude;
+	double altitude;
+	double x_velocity;
+	double y_velocity;
+};
+```
+This struct contains all the relevant data for any satellite it contains it's `latitude`, `longitude`, `altitude`, `x,y velocity`, etc. Any general satellite will have this data attached to them.
+
+
+
 
 
 
