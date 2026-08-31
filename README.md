@@ -97,7 +97,7 @@ testSatellite.visual.setPosition(sf::Vector2f(1280, 640));
 window.draw(testSatellite.visual);
 ```
 
-<img width="1277" height="667" alt="image" src="https://github.com/user-attachments/assets/1ab20856-9c35-44c7-b15e-6dea906fe382" />
+https://github.com/user-attachments/assets/f0c959ca-dbde-4471-bc4f-7684aa4d667a
 
 Next, I needed it to move across the screen. Initially, I tried to use a while loop to smoothly move the white circle to the edge of the screen. `(x = 1280)` However I realised that it was inside the event loop, causing it to move instantly. Taking it out of the event loop fixed the issue.
 
