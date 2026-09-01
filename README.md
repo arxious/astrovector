@@ -236,6 +236,7 @@ I finally managed to get it working and compared it using this website https://i
 
 # 01/09/2025
 I tried my best to document this as extensively as I can, for any onlookers, if you believe anything is missing or you have any questions please don't hestitate to contact me on discord @arxious0
+
 Unfortunately exams are coming up and I didn't get much time to complete the project. I'm happy I managed to display the ISS and I learned a lot about C++, how to make desktop applications, how to work with libraries, CMake and how to build an executable, all of this was very useful experience to me and I hope to finish this project in the future.
 
 
