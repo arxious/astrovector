@@ -109,7 +109,8 @@ Experimenting with this taught me the basics of how to represent the satellite a
 Unlike FlightRadar24 where planes broadcast their exact location through GPS in real time, satellites don't. This made it pretty hard to find a suitable way to find data representing their exact positions. Through researching modern satellite trackers, I found https://celestrak.org/ which has orbital data on over 12,600 satellites. However, this data does not directly specify it's location over the earth. Instead it has "orbital data" which includes `inclination`, `orbit period`, etc. The website says this data can be used to get a suitable approximation of their position through the `SGP4` Algorithm, which supposedly takes these factors, runs them through an extensive mathematical algorithm and returns `Position` and `Velocity` Vectors for the satellite in question.
 
 The website had a section on converting these vectors into latitude and longitude, **that's when I found my understanding of latitude and longitude was wrong**, I was quite silly for thinking it was supposed to represent cartesian x and y coordinates, instead it's an entirely different coordinate system measured in degrees.
-<img width="1280" height="1001" alt="image" src="https://github.com/user-attachments/assets/b08046ac-a93c-4023-a958-f3e32336c133" />
+
+<img width="500" height="391" alt="Lat_Long" src="https://github.com/user-attachments/assets/d042fa2c-3623-4371-be3b-67103d455335" />
 
 I must say though, it is quite similar, Latitude loosely represents the y axis and Longitude the x.
 
