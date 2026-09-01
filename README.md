@@ -102,14 +102,19 @@ Now, since the circle was going outside the bounds of the screen while it was mo
 
 https://github.com/user-attachments/assets/f0c959ca-dbde-4471-bc4f-7684aa4d667a
 
+Experimenting with this taught me the basics of how to represent the satellite and how I would get it to move across the map, now I needed to research how to get the satellite data to display it's position in real time.
+
 # Researching how to get the Satellite Data
-Researching online has taught me that my current implementation isn't feasible, it turns out, my understanding of latitude and longitude were wrong, it is not a replacement for any x/y coordinates but an entirely different coordinate system using degrees..
 
-Unlike FlightRadar24 where planes broadcast their exact location through GPS in real time, Satellites do not have such a thing. Instead, I found out that they have TLE "Two Line Element" Data that includes the name of the satellite, and any orbital data such as it's inclination (tilt), mean motion (orbits per day) etc. 
+Unlike FlightRadar24 where planes broadcast their exact location through GPS in real time, satellites don't. This made it pretty hard to find a suitable way to find data representing their exact positions. Through researching modern satellite trackers, I found https://celestrak.org/ which has orbital data on over 12,600 satellites. However, this data does not directly specify it's location over the earth. Instead it has "orbital data" which includes `inclination`, `orbit period`, etc. The website says this data can be used to get a suitable approximation of their position through the `SGP4` Algorithm, which supposedly takes these factors, runs them through an extensive mathematical algorithm and returns `Position` and `Velocity` Vectors for the satellite in question.
 
-They use all of this information in an algorithm called SGP4, which takes in a specific time $t$ and returns a 3D Position Vector $(x,y,z)$ in km representing the satellite's position in 3D space and Velocity Vector measured in km/s representing the speed and direction of the satellite.
+The website had a section on converting these vectors into latitude and longitude, **that's when I found my understanding of latitude and longitude was wrong**, I was quite silly for thinking it was supposed to represent cartesian x and y coordinates, instead it's an entirely different coordinate system measured in degrees.
+<img width="1280" height="1001" alt="image" src="https://github.com/user-attachments/assets/b08046ac-a93c-4023-a958-f3e32336c133" />
 
-Experimenting with this:
+I must say though, it is quite similar, Latitude loosely represents the y axis and Longitude the x.
+
+Latitude spans $-90 < Lat < 90$ and Longitude spans $-180 < Long < 180$, together they can describe any geographic position. 
+
 
 
 
